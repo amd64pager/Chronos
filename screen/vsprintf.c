@@ -1,11 +1,11 @@
 /* vsprintf.c -- Lars Wirzenius & Linus Torvalds. */
 /*
- * Wirzenius wrote this portably, Torvalds fucked it up :-)
+ * Wirzenius wrote this portably, Torvalds ------ it up :-)
  */
 
 #include "../lib/stdarg.h"
+#include "../lib/global.h"
 //include <string.h>
-
 /* we use this so that we can do without the ctype library */
 #define is_digit(c)     ((c) >= '0' && (c) <= '9')
 
@@ -162,7 +162,7 @@ int vsprintf(char *buf, const char *fmt, va_list args)
 
                 case 's':
                         s = va_arg(args, char *);
-                        len = strlen(s);
+                        len = kstrlen(s);
                         if (precision < 0)
                                 precision = len;
                         else if (len > precision)

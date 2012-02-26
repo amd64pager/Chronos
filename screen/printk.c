@@ -1,7 +1,7 @@
 #include "printk.h"
 #include "vsprintf.h"
 #include "../lib/stdarg.h"
-
+#include "lwtext.h"
 void printk (const char *fmt, ...)
 {
         static char buf [1024];
