@@ -1,3 +1,4 @@
+
 CARGS="-Wall -Wextra -Werror -nostdlib -fno-builtin -nostartfiles -nodefaultlibs"
 clear
 echo Compiling...
@@ -26,4 +27,4 @@ cd ../
 cp kernel.app ./iso/System/Library/CoreServices/Kernel/Kernel.app
 grub-mkrescue -o bootable.iso iso
 echo -------Booting-----------------------------------------
-kvm -cdrom bootable.iso -s -S
+kvm -cdrom bootable.iso
