@@ -15,9 +15,6 @@
 #define IRQ13 45
 #define IRQ14 46
 #define IRQ15 47
-typedef void(*isr_t)(registers_t);
-void register_interrupt_handler(u8int n, isr_t handler);
-isr_t interrupt_handlers[256];
 typedef struct registers
 {
    u32int ds;                  // Data segment selector
@@ -25,3 +22,7 @@ typedef struct registers
    u32int int_no, err_code;    // Interrupt number and error code (if applicable)
    u32int eip, cs, eflags, useresp, ss; // Pushed by the processor automatically.
 } registers_t;
+typedef void(*isr_t)(registers_t);
+void register_interrupt_handler(u8int n, isr_t handler);
+isr_t interrupt_handlers[256];
+
