@@ -1,9 +1,14 @@
+//Includes
 #include "lib/global.h"
+//Screen
 #include "screen/lwtext.h"
 #include "screen/printk.h"
+//Hardware
 #include "lib/multiboot.h"
 #include "hardware/descriptor_tables.h"
+#include "hardware/timer/timer.h"
 #include "config.h"
+//End Includes
 void kmain(struct multiboot *mbd, unsigned int magic )
 {
 	if (magic!=0x2BADB002) //Check if magic number is correct
@@ -20,6 +25,8 @@ void kmain(struct multiboot *mbd, unsigned int magic )
 	printk("[Kernel]:Initalizing Hardware...\n");
 	init_descriptor_tables();
 	printk("[GDT:IDT]:Initalized!\n");
-	asm volatile ("int $0x3");
+	init_timer(100);
+	printk("[Timer]:Initalized!\n");
+	asm("sti");
 	while(1);
 }
