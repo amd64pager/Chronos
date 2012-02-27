@@ -1,4 +1,4 @@
-CARGS="-Wall -Wextra -Werror -nostdlib -fno-builtin -nostartfiles -nodefaultlibs"
+CARGS="-Wall -Wextra -nostdlib -fno-builtin -nostartfiles -nodefaultlibs"
 
 clear
 echo Compiling...
