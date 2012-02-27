@@ -4,5 +4,4 @@
 //Defines all configuration settings.
 #define KERNEL_VERSION_S "0.0.0.1-d"
 
-
 #endif

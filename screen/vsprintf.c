@@ -46,8 +46,11 @@ static char * number(char * str, int num, int base, int size, int precision
         if (type&SIGN && num<0) {
                 sign='-';
                 num = -num;
-        } else
+        }
+        else
+        {
                 sign=(type&PLUS) ? '+' : ((type&SPACE) ? ' ' : 0);
+        }
         if (sign) size--;
         if (type&SPECIAL)
                 if (base==16) size -= 2;
@@ -227,5 +230,6 @@ int vsprintf(char *buf, const char *fmt, va_list args)
                 }
         }
         *str = '\0';
+        qualifier=qualifier+0;
         return str-buf;
 }

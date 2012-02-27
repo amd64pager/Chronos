@@ -1,4 +1,5 @@
 #include "lib/global.h"
+#include "screen/lwtext.h"
 #include "screen/printk.h"
 #include "lib/multiboot.h"
 #include "hardware/descriptor_tables.h"
@@ -13,10 +14,12 @@ void kmain(struct multiboot *mbd, unsigned int magic )
 		asm("hlt");
 		while(1);
 	}
+	init_video();
 	printk("Chronos Kernel %s (Booted by %s)\n",KERNEL_VERSION_S,mbd->boot_loader_name);
 	printk("Avalable Memory:%d mb\n",mbd->mem_upper/1024);
 	printk("[Kernel]:Initalizing Hardware...\n");
 	init_descriptor_tables();
 	printk("[GDT:IDT]:Initalized!\n");
 	asm volatile ("int $0x3");
+	while(1);
 }
