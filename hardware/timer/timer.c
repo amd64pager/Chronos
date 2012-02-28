@@ -3,17 +3,22 @@
 #include "../../screen/printk.h"
 
 u32int tick = 0;
-
+u32int seconds = 0;
+u32int _frequency;
 static void timer_callback(registers_t regs)
 {
    tick++;
-   printk("[Tick:%d]\n",tick);
+   if(tick%_frequency==0)
+   {
+   		seconds++;
+   		printk("[Second:%d]\n",seconds);
+   }
 }
 
 void init_timer(u32int frequency)
 {
    register_interrupt_handler(IRQ0, &timer_callback);
-
+   _frequency=frequency;
    // The value we send to the PIT is the value to divide it's input clock
    // (1193180 Hz) by, to get our required frequency. Important to note is
    // that the divisor must be small enough to fit into 16-bits.
