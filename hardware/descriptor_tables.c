@@ -22,22 +22,6 @@ gdt_ptr_t   gdt_ptr;
 idt_entry_t idt_entries[256];
 idt_ptr_t   idt_ptr;
 //Apparently, I have to extern IRQ's
-extern u32int irq0;
-extern u32int irq1;
-extern u32int irq2;
-extern u32int irq3;
-extern u32int irq4;
-extern u32int irq5;
-extern u32int irq6;
-extern u32int irq7;
-extern u32int irq8;
-extern u32int irq9;
-extern u32int irq10;
-extern u32int irq11;
-extern u32int irq12;
-extern u32int irq13;
-extern u32int irq14;
-extern u32int irq15;
 void init_descriptor_tables()
 {
    // Initialise the global descriptor table.
@@ -124,16 +108,16 @@ static void init_idt()
     idt_set_gate(29, (u32int)isr29, 0x08, 0x8E);
     idt_set_gate(30, (u32int)isr30, 0x08, 0x8E);
     idt_set_gate(31, (u32int)isr31, 0x08, 0x8E);
-    idt_set_gate(32, (u32int)irq0, 0x08, 0x8E);
-    idt_set_gate(33, (u32int)irq1, 0x08, 0x8E);
-    idt_set_gate(34, (u32int)irq2, 0x08, 0x8E);
-    idt_set_gate(35, (u32int)irq3, 0x08, 0x8E);
-    idt_set_gate(36, (u32int)irq4, 0x08, 0x8E);
-    idt_set_gate(37, (u32int)irq5, 0x08, 0x8E);
-    idt_set_gate(38, (u32int)irq6, 0x08, 0x8E);
-    idt_set_gate(39, (u32int)irq7, 0x08, 0x8E);
-    idt_set_gate(40, (u32int)irq8, 0x08, 0x8E);
-    idt_set_gate(41, (u32int)irq9, 0x08, 0x8E);
+    idt_set_gate(32, (u32int)irq0,  0x08, 0x8E);
+    idt_set_gate(33, (u32int)irq1,  0x08, 0x8E);
+    idt_set_gate(34, (u32int)irq2,  0x08, 0x8E);
+    idt_set_gate(35, (u32int)irq3,  0x08, 0x8E);
+    idt_set_gate(36, (u32int)irq4,  0x08, 0x8E);
+    idt_set_gate(37, (u32int)irq5,  0x08, 0x8E);
+    idt_set_gate(38, (u32int)irq6,  0x08, 0x8E);
+    idt_set_gate(39, (u32int)irq7,  0x08, 0x8E);
+    idt_set_gate(40, (u32int)irq8,  0x08, 0x8E);
+    idt_set_gate(41, (u32int)irq9,  0x08, 0x8E);
     idt_set_gate(42, (u32int)irq10, 0x08, 0x8E);
     idt_set_gate(43, (u32int)irq11, 0x08, 0x8E);
     idt_set_gate(44, (u32int)irq12, 0x08, 0x8E);

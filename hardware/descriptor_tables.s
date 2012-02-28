@@ -37,7 +37,6 @@ idt_flush:
     push byte %1
     jmp isr_common_stub
 %endmacro
-
 %macro IRQ 2
   [GLOBAL irq%1]
   irq%1:
@@ -46,7 +45,6 @@ idt_flush:
     push byte %2
     jmp irq_common_stub
 %endmacro
-
 ISR_NOERRCODE 0
 ISR_NOERRCODE 1
 ISR_NOERRCODE 2
