@@ -1,6 +1,5 @@
-// monitor.c -- Defines functions for writing to the monitor.
-#include "lwtext.h"
-#include "../lib/global.h"
+#include <screen/lwtext.h>
+#include <global.h>
 u16int *video_memory = (u16int*)0xB8000;
 u8int cursor_x = 0;
 u8int cursor_y = 0;

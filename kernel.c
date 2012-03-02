@@ -1,13 +1,13 @@
 //Includes
-#include "lib/global.h"
+#include <global.h>
 //Screen
-#include "screen/lwtext.h"
-#include "screen/printk.h"
+#include <screen/lwtext.h>
+#include <screen/printk.h>
 //Hardware
-#include "lib/multiboot.h"
-#include "hardware/descriptor_tables.h"
-#include "hardware/timer/timer.h"
-#include "config.h"
+#include <multiboot.h>
+#include <hardware/descriptor_tables.h>
+#include <hardware/timer.h>
+#include <config.h>
 //End Includes
 void kmain(struct multiboot *mbd, unsigned int magic )
 {
@@ -28,5 +28,8 @@ void kmain(struct multiboot *mbd, unsigned int magic )
 	init_timer(100);
 	printk("[Timer]:Initalized!\n");
 	asm("sti");
+	printk("[Kernel]:Waiting 10 Seconds...\n");
+	halt_s(10);
+	printk("[Kernel]:Continuing...\n");
 	while(1);
 }

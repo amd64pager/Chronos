@@ -6,9 +6,9 @@
 // Used (Copied) for Chronos.
 //
 
-#include "../lib/global.h"
-#include "descriptor_tables.h"
-#include "isr.h"
+#include <global.h>
+#include <hardware/descriptor_tables.h>
+#include <hardware/isr.h>
 // Lets us access our ASM functions from our C code.
 extern void gdt_flush(u32int);
 extern void idt_flush(u32int);

@@ -3,8 +3,8 @@
  * Wirzenius wrote this portably, Torvalds ------ it up :-)
  */
 
-#include "../lib/stdarg.h"
-#include "../lib/global.h"
+#include <stdarg.h>
+#include <global.h>
 //include <string.h>
 /* we use this so that we can do without the ctype library */
 #define is_digit(c)     ((c) >= '0' && (c) <= '9')

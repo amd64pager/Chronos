@@ -1,20 +1,40 @@
-#include "timer.h"
-#include "../isr.h"
-#include "../../screen/printk.h"
+#include <hardware/timer.h>
+#include <hardware/isr.h>
+#include <screen/printk.h>
 
-u32int tick = 0;
-u32int seconds = 0;
+u32int _tick = 0;
+u32int _seconds = 0;
+u32int _minute = 0;
+u32int _hour = 0;
+u32int _day = 0;
 u32int _frequency;
 static void timer_callback(registers_t regs)
 {
-   tick++;
-   if(tick%_frequency==0)
-   {
-   		seconds++;
-   		printk("[Second:%d]\n",seconds);
-   }
+	_tick++;
+	if(_tick%_frequency==0)
+	{
+		_seconds++;
+		if(_seconds%60==0)
+		{
+			_minute++;
+			if(_minute%60==0)
+			{
+				_hour++;
+				if(_hour%24==0)
+				{
+					_day++;
+				}
+			}
+		}
+	}
 }
+void halt_s(int seconds)
+{
+	unsigned long eticks;
 
+    eticks = seconds + _seconds;
+    while(_seconds < eticks);
+}
 void init_timer(u32int frequency)
 {
    register_interrupt_handler(IRQ0, &timer_callback);
