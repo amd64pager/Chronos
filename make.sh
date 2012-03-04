@@ -15,7 +15,7 @@ i586-elf-gcc $CARGS -o obj/descriptor_tables.o -c hardware/descriptor_tables.c
 i586-elf-gcc $CARGS -o obj/isr.o -c hardware/isr.c
 i586-elf-gcc $CARGS -o obj/timer.o -c hardware/timer/timer.c
 i586-elf-gcc $CARGS -o obj/kernel.o -c kernel.c
-i586-elf-gcc $CARGS -o obj/global.o -c lib/global.c
+i586-elf-gcc $CARGS -o obj/global.o -c include/global.c
 echo Linking...
 cd obj
 i586-elf-ld -T ../link.ld -o ../kernel.app loader.o kernel.o global.o lwtext.o vsprintf.o printk.o asm_dstables.o descriptor_tables.o isr.o timer.o

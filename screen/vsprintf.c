@@ -53,8 +53,10 @@ static char * number(char * str, int num, int base, int size, int precision
         }
         if (sign) size--;
         if (type&SPECIAL)
+        {
                 if (base==16) size -= 2;
                 else if (base==8) size--;
+        }
         i=0;
         if (num==0)
                 tmp[i++]='0';
@@ -68,12 +70,14 @@ static char * number(char * str, int num, int base, int size, int precision
         if (sign)
                 *str++ = sign;
         if (type&SPECIAL)
+        {
                 if (base==8)
                         *str++ = '0';
                 else if (base==16) {
                         *str++ = '0';
                         *str++ = digits[33];
                 }
+        }
         if (!(type&LEFT))
                 while(size-->0)
                         *str++ = c;

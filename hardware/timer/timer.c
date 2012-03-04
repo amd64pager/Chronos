@@ -27,6 +27,7 @@ static void timer_callback(registers_t regs)
 			}
 		}
 	}
+	regs=regs;
 }
 void halt_s(int seconds)
 {

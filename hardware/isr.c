@@ -1,6 +1,6 @@
-#include "../lib/global.h"
-#include "isr.h"
-#include "../screen/printk.h"
+#include <global.h>
+#include <hardware/isr.h>
+#include <screen/printk.h>
 
 isr_t interrupt_handlers[256];
 
