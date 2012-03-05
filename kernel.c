@@ -28,8 +28,4 @@ void kmain(struct multiboot *mbd, unsigned int magic )
 	init_timer(100);
 	printk("[Timer]:Initalized!\n");
 	asm("sti");
-	printk("[Kernel]:Waiting 10 Seconds...\n");
-	halt_s(10);
-	printk("[Kernel]:Continuing...\n");
-	while(1);
 }

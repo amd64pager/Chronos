@@ -14,11 +14,15 @@ nasm -f elf -o obj/asm_dstables.o hardware/descriptor_tables.s
 i586-elf-gcc $CARGS -o obj/descriptor_tables.o -c hardware/descriptor_tables.c
 i586-elf-gcc $CARGS -o obj/isr.o -c hardware/isr.c
 i586-elf-gcc $CARGS -o obj/timer.o -c hardware/timer/timer.c
+#Paging & Heap
+i586-elf-gcc $CARGS -o obj/paging.o -c hardware/mm/paging.c
+i586-elf-gcc $CARGS -o obj/kheap.o -c hardware/mm/kheap.c
+#Kernel
 i586-elf-gcc $CARGS -o obj/kernel.o -c kernel.c
 i586-elf-gcc $CARGS -o obj/global.o -c include/global.c
 echo Linking...
 cd obj
-i586-elf-ld -T ../link.ld -o ../kernel.app loader.o kernel.o global.o lwtext.o vsprintf.o printk.o asm_dstables.o descriptor_tables.o isr.o timer.o
+i586-elf-ld -T ../link.ld -o ../kernel.app loader.o kernel.o global.o lwtext.o vsprintf.o printk.o asm_dstables.o descriptor_tables.o isr.o timer.o paging.o kheap.o
 
 
 echo Creating Media...
