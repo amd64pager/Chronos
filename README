@@ -1,4 +1,7 @@
-Welcome to the Chronos Kernel GitHub Page!
-
-There are two main branches, master and dev
-Master contains somewhat working code, dev is very unstable and bleeding edge.
+Welcome to the Chronos Kernel!
+Currently, the dev branch is on 0.0.0.1-alpha; master is on 0.0.0.1-dev
+Master is "stable" code only, dev is "broken/buggy/cutting-edge/development" code.
+Release Info:
+When code is stable enough from dev, it is merged to master.
+Building:
+You must have a cross compiler named i586-elf-gcc, and NASM
